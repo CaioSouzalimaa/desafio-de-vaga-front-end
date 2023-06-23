@@ -28,7 +28,7 @@ export const mountQuery = (type: FilterType, priority: PriorityTypes) => {
     const categoryFilter = graphqlFilter(type);
     return `query {
         allProducts(sortField: "${sortSettings.field}", sortOrder: "${sortSettings.order}",
-         ${categoryFilter? `filter: { category: "${categoryFilter}"}}` : '' }) {
+         ${categoryFilter ? `filter: { category: "${categoryFilter}"}` : '' }) {
             id
             name
             price_in_cents
