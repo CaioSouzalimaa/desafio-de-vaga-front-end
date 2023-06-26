@@ -10,7 +10,7 @@ export function useLocalStorage<T>(item: string, initialValue: T) {
                 setValue(JSON.parse(storageValue));
             }
         }
-    })
+    },[window])
 
     const updateLocalStorage = (newValue: T) => {
         setValue(newValue);
