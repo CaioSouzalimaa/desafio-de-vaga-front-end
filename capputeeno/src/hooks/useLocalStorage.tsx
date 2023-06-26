@@ -1,7 +1,16 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-export function useLocalStorage<T>(item: string) {
-    const [value, setValue] = useState(JSON.parse(localStorage.getItem(item) ?? ''));
+export function useLocalStorage<T>(item: string, initialValue: T) {
+    const [value, setValue] = useState<T>(initialValue);
+
+    useEffect(() => {
+        if(typeof window !== "undefined"){
+            const storageValue = localStorage.getItem(item);
+            if(storageValue){
+                setValue(JSON.parse(storageValue));
+            }
+        }
+    })
 
     const updateLocalStorage = (newValue: T) => {
         setValue(newValue);
