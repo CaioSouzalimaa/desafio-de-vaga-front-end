@@ -41,6 +41,7 @@ const Logo = styled.a`
   font-size: 20px;
   line-height: 150%;
   cursor: pointer;
+  text-decoration: none;
 
   @media (min-width: ${props => props.theme.tabletBreakpoint}) {
     font-size: 24px;
@@ -53,13 +54,10 @@ const Logo = styled.a`
 
 export function Header(props: HeaderProps) {
   const {setSearch, search} = useFilter()
-  const router = useRouter();
-  const handleLogoClick = () => {
-    router.push('/')
-  }
+
   return (
     <TagHeader>
-      <Logo className={sairaStencial.className} onClick={handleLogoClick}>Capputeeno</Logo>
+      <Logo className={sairaStencial.className} href={"/"}>Capputeeno</Logo>
       <div>
         <PrimaryInputWSearchIcon
           placeholder={"Procurando por algo específico?"}
